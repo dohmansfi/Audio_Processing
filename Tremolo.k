@@ -26,7 +26,5 @@ struct Tremolo : Effect {
 		signal mod = lfo(rate) * depth + (1 - depth);
 		mod >> debug;
 		in * mod >> out;
-		
-		mod >> graph;
 	}
 };
