@@ -6,21 +6,18 @@ struct Gain : Effect {
 
 	// Initialise plugin (called once at startup)
 	Gain() {
-		controls = {
-			Dial("Gain", 0.0, 15.0, 0.5),
+		controls = { 
+			Dial("Gain", 0, 1, 0) 
 		};
 	}
 
 	// Apply processing (called once per sample)
 	void process() {
+	
+		// PARAMETERS
 		param gain = controls[0];
 		
-		signal mix = in * gain;
-		
-		if (mix > 1)
-			mix = 1;
-		else if (mix < -1)
-			mix = -1;
-		mix >> out;
+		// PROCESSING
+		in * gain >> out;
 	}
 };

@@ -13,8 +13,11 @@ struct Pan : Stereo::Effect {
 
 	// Apply processing (called once per sample)
 	void process() {
+	
+		// PARAMETERS
 		param x = controls[0];
 		
+		// PROCESSING
 		in.l * (1 - x) >> out.l;
 		in.r * (x)     >> out.r;
 	}

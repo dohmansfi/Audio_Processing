@@ -13,18 +13,17 @@ struct Tremolo : Effect {
 		};
 	}
 
-	// Prepare for processing (called once per buffer)
-	void prepare() {
-		
-	}
-
 	// Apply processing (called once per sample)
 	void process() {
+	
+		// PARAMETERS
 		param rate = controls[0];
 		param depth = controls[1];
 		
-		signal mod = lfo(rate) * depth + (1 - depth);
+		signal mod = lfo(rate) * depth + (1 - depth); // generate mod signal
 		mod >> debug;
+		
+		// PROCESSING
 		in * mod >> out;
 	}
 };
