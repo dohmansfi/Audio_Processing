@@ -17,7 +17,7 @@ float softclip(signal x, param c) {
 	return tanh(x * c) / tanh(c);
 }
 
-Function shape(softclip);
+Function shape(softclip); // wrap softclip in a function object
 
 // smooth tube-like saturation
 signal sine_shaped(signal x) {
@@ -49,7 +49,7 @@ struct Distortion : Effect {
 		
 		in >> debug; // analyse dry signal
 		
-		// PROCESSING 
+		// PROCESSING
 		if(function == 0) { 
 			graph.clear();
 			clip(in * overdrive) >> out;
