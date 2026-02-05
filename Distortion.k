@@ -13,7 +13,7 @@ signal clip(signal x) {
 }
 
 // soft clipping
-float softclip(signal x, param c) {
+float softclip(float x, float c) {
 	return tanh(x * c) / tanh(c);
 }
 
@@ -37,6 +37,11 @@ struct Distortion : Effect {
 			Dial("Output Gain", 0, 1, 1, { 320, 50,  60,     60 }),
 		};
 	}
+	
+	// Prepare for processing (called once per buffer)
+	void prepare() {
+		graph.clear();
+	}
 
 	// Apply processing (called once per sample)
 	void process() {
@@ -51,16 +56,14 @@ struct Distortion : Effect {
 		
 		// PROCESSING
 		if(function == 0) { 
-			graph.clear();
 			clip(in * overdrive) >> out;
 			clip >> graph(-2, 2, -2, 2);
 		}
 		else if(function == 1) {
-			graph.clear();
 			in >> shape(c) >> out;
+			shape >> graph(-2, 2, -2, 2);
 		}
 		else if(function == 2) {
-			graph.clear();
 			sine_shaped(in * overdrive) >> out;
 			sine_shaped >> graph(-2, 2, -2, 2);
 		}
