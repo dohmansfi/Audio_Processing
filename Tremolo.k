@@ -8,8 +8,8 @@ struct Tremolo : Effect {
 	// Initialise plugin (called once at startup)
 	Tremolo() {
 		controls = { 
-			Dial("Mod Rate", 1.0, 10.0, 6.0),
-			Dial("Mod Depth", 0.0, 0.5, 0.5),
+			Dial("Rate", 1.0, 10.0, 6.0),
+			Dial("Depth", 0.0, 0.5, 0.5),
 		};
 	}
 

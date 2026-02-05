@@ -7,7 +7,7 @@ struct Gain : Effect {
 	// Initialise plugin (called once at startup)
 	Gain() {
 		controls = { 
-			Dial("Gain", 0, 1, 0) 
+			Dial("Gain", 0, 1, 0)
 		};
 	}
 

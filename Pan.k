@@ -7,7 +7,7 @@ struct Pan : Stereo::Effect {
 	// Initialise plugin (called once at startup)
 	Pan() {
 		controls = { 
-			Dial("Pan", 0.0, 1.0, 0.5),
+			Dial("Pan", 0.0, 1.0, 0.5), 
 		};
 	}
 
