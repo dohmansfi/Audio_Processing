@@ -6,6 +6,7 @@ param cubed(param x) {
 	return x * x * x;
 }
 
+// linear mapping
 param map(param x, float min, float max) {
 	return x * (max - min) + min;
 }
