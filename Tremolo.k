@@ -9,6 +9,7 @@ struct Tremolo : Effect {
 	Tremolo() {
 		controls = { 
 			Dial("Rate", 1.0, 10.0, 6.0),
+			Dial("Depth", 0.0, 0.5, 0.5),
 			
 		};
 	}
@@ -26,16 +27,4 @@ struct Tremolo : Effect {
 		// PROCESSING
 		in * mod >> out;
 	}
-};
-
-struct FX : Effect {
-	FX() {
-		controls = { 
-			
-			Dial("Depth", 0.0, 0.5, 0.5),
-		};
-	}
-	
-	void process() {}
-	
 };
